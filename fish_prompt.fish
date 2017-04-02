@@ -16,11 +16,7 @@ function __toaster_color_echo
 end
 
 function __toaster_current_folder
-  if test $PWD = '/'
-    echo -n '/'
-  else
-    echo -n $PWD | grep -o -E '[^\/]+$'
-  end
+  echo -n $PWD | sed "s@^/home/$USER@~@"
 end
 
 function __toaster_git_status_codes
